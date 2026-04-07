@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Servicios - Sargas Electric</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sargas: {
+                            dark: '#0f172a', // Azul oscuro (fondo banner)
+                            blue: '#1e40af', // Azul brillante (tecnología)
+                            red: '#be123c',  // Rojo carmesí (detalles del logo)
+                            light: '#f1f5f9' // Gris muy claro
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .bg-tech-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e40af 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* --- ANIMACIONES DE BORDES EN MOVIMIENTO --- */
+        .moving-border-wrapper {
+            position: relative;
+            border-radius: 1rem;
+            padding: 3px; /* Grosor del borde animado */
+            overflow: hidden;
+            background: #e2e8f0; /* Color base del borde */
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .moving-border-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.2), 0 10px 10px -5px rgba(30, 64, 175, 0.1);
+        }
+
+        /* El rayo de luz que gira */
+        .moving-border-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 0%, transparent 65%, #be123c 85%, #1e40af 100%);
+            animation: border-spin 3s linear infinite;
+            z-index: 0;
+        }
+
+        /* Contenido interior que oculta el centro del gradiente */
+        .moving-border-content {
+            background-color: #ffffff;
+            border-radius: 0.85rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .moving-border-content.dark-bg {
+            background-color: #0f172a;
+        }
+
+        @keyframes border-spin {
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-sargas-red selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="tel:04128698715" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <!-- Icono representativo -->
+                <div class="w-12 h-12 bg-sargas-dark rounded-full flex items-center justify-center border-2 border-sargas-red">
+                    <i class="fa-solid fa-sword text-white text-xl"></i>
+                    <i class="fa-solid fa-bolt text-sargas-red text-xl absolute"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-sargas-dark tracking-tight">SARGAS ELECTRIC</h1>
+                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Enfoque educativo y profesional</p>
+                </div>
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#servicios" class="text-gray-600 hover:text-sargas-blue font-medium transition">Servicios</a>
+                <a href="#planes" class="text-gray-600 hover:text-sargas-blue font-medium transition">Planes</a>
+                <a href="https://wa.me/584128698715" target="_blank" class="bg-sargas-blue hover:bg-blue-800 text-white px-5 py-2 rounded-lg font-medium transition shadow-lg shadow-blue-500/30">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> Contactar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-tech-pattern text-white py-20 border-b-4 border-sargas-red relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-sargas-dark to-transparent opacity-90"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:w-2/3">
+                <span class="inline-block py-1 px-3 rounded-full bg-sargas-red/20 border border-sargas-red/50 text-red-300 text-sm font-semibold mb-4 backdrop-blur-sm">
+                    Asesoría Tecnológica y Académica
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                    Impulsamos tu Éxito en <span class="text-blue-400">Tecnología</span> e <span class="text-blue-400">Ingeniería</span>
+                </h2>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    Especialistas en automatización, robótica, IoT e inteligencia artificial. Brindamos apoyo integral en la elaboración de proyectos, desarrollo de hardware y redacción de trabajos de grado.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#servicios" class="bg-sargas-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition shadow-lg shadow-red-900/50">
+                        Ver nuestros servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Clave (Banner Info) -->
+    <section class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-sargas-dark">Habilidades Clave</h3>
+                <div class="w-24 h-1 bg-sargas-red mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="flex items-center space-x-3 p-4 bg-sargas-light rounded-xl border border-gray-100 hover:border-sargas-blue transition-colors">
+                    <i class="fa-solid fa-robot text-sargas-blue text-2xl w-8"></i>
+                    <span class="font-semibold text-gray-700 text-sm">Automatización & Robótica Avanzada</span>
+                </div>
+                <div class="flex items-center space-x-3 p-4 bg-sargas-light rounded-xl border border-gray-100 hover:border-sargas-blue transition-colors">
+                    <i class="fa-solid fa-chalkboard-user text-sargas-blue text-2xl w-8"></i>
+                    <span class="font-semibold text-gray-700 text-sm">Producción de Contenido Docente</span>
+                </div>
+                <div class="flex items-center space-x-3 p-4 bg-sargas-light rounded-xl border border-gray-100 hover:border-sargas-blue transition-colors">
+                    <i class="fa-solid fa-eye text-sargas-blue text-2xl w-8"></i>
+                    <span class="font-semibold text-gray-700 text-sm">Proyectos de Visión Artificial Educativa y Prototipos</span>
+                </div>
+                <div class="flex items-center space-x-3 p-4 bg-sargas-light rounded-xl border border-gray-100 hover:border-sargas-blue transition-colors">
+                    <i class="fa-solid fa-network-wired text-sargas-blue text-2xl w-8"></i>
+                    <span class="font-semibold text-gray-700 text-sm">Sistemas Integrados & IoT</span>
+                </div>
+                <div class="flex items-center space-x-3 p-4 bg-sargas-light rounded-xl border border-gray-100 hover:border-sargas-blue transition-colors">
+                    <i class="fa-solid fa-brain text-sargas-blue text-2xl w-8"></i>
+                    <span class="font-semibold text-gray-700 text-sm">Inteligencia Artificial Aplicada</span>
+                </div>
+                <div class="flex items-center space-x-3 p-4 bg-sargas-light rounded-xl border border-gray-100 hover:border-sargas-blue transition-colors">
+                    <i class="fa-solid fa-tasks text-sargas-blue text-2xl w-8"></i>
+                    <span class="font-semibold text-gray-700 text-sm">Gestión de Proyectos Tecnológicos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Services -->
+    <section id="servicios" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-sargas-dark">Nuestros Servicios Académicos</h3>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Te acompañamos en cada etapa de tu formación, desde la concepción de la idea hasta la defensa de tu proyecto tecnológico.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="moving-border-wrapper shadow-md">
+                    <div class="moving-border-content">
+                        <div class="h-2 bg-sargas-blue w-full"></div>
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-microchip text-sargas-blue text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Electrónica y Robótica</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Desarrollo de proyectos educativos prácticos. Desde el diseño de circuitos y ensamblaje, hasta la programación de microcontroladores y creación de prototipos funcionales para demostraciones académicas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="moving-border-wrapper shadow-md">
+                    <div class="moving-border-content">
+                        <div class="h-2 bg-sargas-red w-full"></div>
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-graduation-cap text-sargas-red text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Anteproyectos y Tesis</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Estructuración y desarrollo de Trabajos de Grado afines a la tecnología (IoT, IA, Visión Artificial). Te apoyamos en el planteamiento del problema, marco metodológico y desarrollo de la propuesta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="moving-border-wrapper shadow-md">
+                    <div class="moving-border-content">
+                        <div class="h-2 bg-sargas-dark w-full"></div>
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa-solid fa-pen-nib text-sargas-dark text-2xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Asesoría y Redacción</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Servicio de apoyo en la redacción técnica. Revisión de normas, corrección de estilo, elaboración de borradores y acompañamiento continuo adaptado a las exigencias de tu institución.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Modalities -->
+    <section id="planes" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-sargas-dark">Modalidades de Trabajo</h3>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Planes adaptados a diferentes presupuestos y niveles de profundidad. Tú decides hasta dónde necesitas nuestro apoyo.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                <!-- Nivel 1 -->
+                <div class="moving-border-wrapper shadow-md h-full">
+                    <div class="moving-border-content flex flex-col p-8">
+                        <h4 class="text-lg font-semibold text-gray-500 mb-2">Nivel 1</h4>
+                        <p class="text-2xl font-bold text-sargas-dark mb-4">Solo Borradores</p>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow">Ideal para estudiantes que buscan una base sólida y estructurada para desarrollar el trabajo por su cuenta.</p>
+                        <ul class="space-y-3 mb-8 text-sm text-gray-700 flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Estructura general del documento.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Redacción de ideas principales y borradores.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Asesoría básica inicial.</li>
+                            <li class="flex items-start text-gray-400"><i class="fa-solid fa-times mt-1 mr-2"></i> Sin rondas de correcciones.</li>
+                        </ul>
+                        <div class="pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-500 block text-center uppercase tracking-wider">Menor Inversión</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nivel 2 -->
+                <div class="moving-border-wrapper shadow-2xl h-full md:-translate-y-4">
+                    <div class="moving-border-content dark-bg text-white flex flex-col p-8 relative">
+                        <div class="absolute top-0 right-0 bg-sargas-red text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-[0.85rem] uppercase z-10">
+                            Más Solicitado
+                        </div>
+                        <h4 class="text-lg font-semibold text-blue-300 mb-2">Nivel 2</h4>
+                        <p class="text-2xl font-bold text-white mb-4">Desarrollo y Correcciones</p>
+                        <p class="text-sm text-gray-300 mb-6 flex-grow">Para quienes requieren el desarrollo completo del texto o proyecto con acompañamiento para ajustes.</p>
+                        <ul class="space-y-3 mb-8 text-sm text-gray-200 flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-blue-400 mt-1 mr-2"></i> Desarrollo profundo del contenido.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-blue-400 mt-1 mr-2"></i> Formato y normativa académica.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-blue-400 mt-1 mr-2"></i> Rondas de correcciones incluidas.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-blue-400 mt-1 mr-2"></i> Asesoría durante el proceso.</li>
+                        </ul>
+                        <div class="pt-4 border-t border-gray-700">
+                            <span class="text-xs text-gray-400 block text-center uppercase tracking-wider">Inversión Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nivel 3 -->
+                <div class="moving-border-wrapper shadow-md h-full">
+                    <div class="moving-border-content flex flex-col p-8">
+                        <h4 class="text-lg font-semibold text-gray-500 mb-2">Nivel 3</h4>
+                        <p class="text-2xl font-bold text-sargas-dark mb-4">Proyecto Integral</p>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow">Servicio premium "Llave en mano". Desarrollo del documento completo y del prototipo de hardware/software.</p>
+                        <ul class="space-y-3 mb-8 text-sm text-gray-700 flex-grow">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Desarrollo de Tesis + Prototipo Educativo.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Máxima profundidad de investigación.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Acompañamiento hasta la aprobación final.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Preparación para la defensa.</li>
+                        </ul>
+                        <div class="pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-500 block text-center uppercase tracking-wider">Inversión Superior</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer / Notas Importantes -->
+    <section class="py-12 bg-sargas-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-sm">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <i class="fa-solid fa-triangle-exclamation text-yellow-500 text-xl mt-1"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-bold text-yellow-800 mb-2">Nota Importante sobre la Evaluación Académica</h3>
+                        <div class="text-yellow-700 text-sm leading-relaxed space-y-2">
+                            <p>
+                                En <strong>Sargas Electric</strong> nos comprometemos a entregar trabajos elaborados con rigor, ética y un alto estándar de calidad técnica y metodológica. Sin embargo, es imperativo aclarar que <strong>nuestros entregables no se garantizan como "perfectos" o exentos de observaciones</strong> en su primera instancia.
+                            </p>
+                            <p>
+                                Todo trabajo de grado o anteproyecto académico queda sujeto a la revisión, evaluación y criterio subjetivo de los tutores, jurados o comisiones de grado de su respectiva institución. Es completamente normal y esperado que dichos comités soliciten cambios, ampliaciones o modificaciones para adaptar el trabajo a sus expectativas particulares. 
+                            </p>
+                            <p>
+                                Ofrecemos rondas de correcciones (según el plan contratado) precisamente para cubrir estas eventualidades y acompañarte hasta la aprobación de tu proyecto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contacto" class="bg-sargas-dark text-white pt-16 pb-8 border-t-4 border-sargas-blue">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 mb-12">
+                <!-- Branding -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 flex items-center">
+                        SARGAS ELECTRIC
+                    </h2>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Enfoque educativo y profesional. Especialistas en soluciones de ingeniería, robótica, hardware y asesoría académica de alto nivel.
+                    </p>
+                    <div class="flex space-x-4">
+                        <span class="bg-gray-800 text-xs px-2 py-1 rounded text-gray-300">Educación</span>
+                        <span class="bg-gray-800 text-xs px-2 py-1 rounded text-gray-300">Tecnología</span>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">Contacto y Ubicación</h3>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-sargas-red"></i>
+                            <span>Barcelona, Anzoátegui, Venezuela</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-sargas-red"></i>
+                            <a href="mailto:sargas1717@gmail.com" class="hover:text-white transition">sargas1717@gmail.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-sargas-red"></i>
+                            <a href="tel:04128698715" class="hover:text-white transition">0412-8698715</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-whatsapp mr-3 text-green-500 text-lg"></i>
+                            <a href="https://wa.me/584128698715" target="_blank" class="hover:text-white transition">Atención vía WhatsApp</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-6">¿Listo para empezar?</h3>
+                    <p class="text-sm text-gray-400 mb-6">Contáctanos ahora para evaluar tu proyecto, definir la profundidad requerida y enviarte una cotización a medida.</p>
+                    <a href="https://wa.me/584128698715" target="_blank" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-lg transition shadow-lg shadow-green-900/30 flex justify-center items-center">
+                        <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Escríbenos al WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Sargas Electric. Todos los derechos reservados.</p>
+                <p class="mt-2 md:mt-0">Diseñado para el éxito académico y tecnológico.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
